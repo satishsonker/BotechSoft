@@ -1,0 +1,318 @@
+﻿:root {
+    --theme-color: #170135;
+    --menu-hover-color: #4f2b7f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.top-nav {
+    position: fixed;
+    width: 100vw;
+    height: 51px;
+    padding: 25px 0;
+    border: 1px solid var(--theme-color);
+    background-color: var(--theme-color);
+    box-sizing: content-box;
+    z-index: 999;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.logo {
+    height: 50px;
+    float: left;
+    width: calc(30% - 50px);
+}
+
+div.brand-name {
+    font-family: sans-serif;
+    line-height: 47px;
+    width: 235px;
+    float: left;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 900;
+    color: white;
+}
+
+.logo > a > img {
+    height: 50px;
+    float: left;
+    margin-right: 15px;
+}
+
+.nav-right {
+    float: right;
+    width: 70%;
+    height: 50px;
+    padding: 0;
+}
+
+.hs_header_add_icon {
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ededed;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.hs_header_add_icon_cont {
+    float: left;
+    width: calc(100% - 70px);
+    padding-top: 2px;
+    padding-left: 15px;
+}
+
+.hs_header_add_wrapper {
+    float: right;
+    width: 220px;
+    margin-left: 20px;
+}
+
+.hs_header_add_icon_cont h5 {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.hs_header_add_icon_cont p {
+    font-size: 11px;
+    color: #969696;
+    margin-top: 3px;
+}
+
+.header-menu {
+    list-style: none
+}
+
+.humbarger {
+    color: white;
+    font-size: 25px;
+    line-height: 41px !important;
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+.mobile-menu {
+}
+
+.hidden-menu {
+    display: none;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#menu 
+
+.header-mobile-menu {
+    margin-left: 20px;
+    list-style: none;
+}
+
+    .header-mobile-menu li {
+        display: flex;
+        width: 100%;
+    }
+
+        .header-mobile-menu li a {
+            text-align: left;
+            width: 100%;
+            padding: 9px;
+            display: inline-block;
+            color: #ffffff;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            transition: all 0.5s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+            .header-mobile-menu li a:hover {
+                color: #ffffff;
+                background: var(--menu-hover-color);
+                -webkit-transition: all 0.5s;
+                -o-transition: all 0.5s;
+                -ms-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+
+.hs_navigation_header_wrapper .container {
+    padding: 0;
+    margin: 0 8px;
+}
+
+.header-menu li {
+    float: left;
+    position: relative;
+}
+
+    .header-menu li:after {
+        content: '';
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        height: 20px;
+        position: absolute;
+        right: -1px;
+        top: 13px;
+    }
+
+    .header-menu li a {
+        text-align: center;
+        padding: 9px;
+        display: inline-block;
+        color: #ffffff;
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        transition: all 0.5s;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+        .header-menu li a:hover {
+            color: #ffffff;
+            background: var(--menu-hover-color);
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+.hs_navigation_header_wrapper {
+    float: left;
+    width: 100%;
+    background: #170135;
+    border-top: 1px solid rgba(255, 255, 255, 0.28);
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    position: fixed;
+    margin-top: 103px;
+    z-index: 999;
+}
+
+.mobile-menu {
+    border: 1px solid black;
+    height: calc(100vh - 125px);
+    width: 50vw;
+    background: var(--theme-color);
+    position: absolute;
+}
+
+.menu-container {
+    padding: 0 !important;
+    margin-left: 15px;
+}
+
+.body-container {
+    margin-top: 146px;
+    position: absolute;
+}
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        height: 50px;
+        float: left;
+        width: calc(40%);
+    }
+    .nav-right {
+        float: right;
+        width: 60%;
+        height: 50px;
+        padding: 0;
+    }
+    .top-nav {
+        /*width: 107%;*/
+    }
+    .header-mobile-menu li a {
+        font-size: 13px;
+    }
+    .menu-container {
+        margin-left: 0px;
+    }
+
+    .hs_header_add_wrapper {
+        width: 153px;
+        margin-left: 10px;
+    }
+
+    .hs_header_add_icon {
+        float: left;
+        width: 25px;
+        height: 25px;
+        border: 1px solid #ededed;
+        text-align: center;
+        line-height: 25px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hs_header_add_icon_cont h5 {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    .hs_header_add_icon_cont p {
+        font-size: 10px;
+        color: #969696;
+        margin-top: 3px;
+    }
+
+    .hs_header_add_icon_cont {
+        width: calc(100% - 45px);
+    }
+
+    .container, .row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/*Scroll bar CSS*/
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        width: 10px;
+    }
