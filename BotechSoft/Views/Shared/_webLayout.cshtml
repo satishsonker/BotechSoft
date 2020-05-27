@@ -25,7 +25,7 @@
                 </div>
                 <div class="hs_header_add_icon_cont">
                     <h5>Contact Us</h5>
-                    <p>+91-8799798300</p>
+                    <p><a style="text-decoration:none;" href="tel:+91-8799798300">+91-8799798300</a></p>
                 </div>
             </div>
             <div class="hs_header_add_wrapper d-none d-sm-block">
@@ -50,48 +50,105 @@
                     <i class="fas fa-bars humbarger d-lg-none d-md-none d-sm-block"></i>
                     <div class="mobile-menu hidden-menu">
                         <ul class="header-mobile-menu">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Our Services</a></li>
+                            <li><a href="/home/index">Home</a></li>
                             <li><a href="#">About Us</a></li>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Contact Us</a></li>
                         </ul>
                     </div>
                     <ul class="header-menu  d-none d-md-block">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Our Services</a></li>
+                        <li><a href="/home/index">Home</a></li>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <div class="body-container">
-        @RenderBody()
+        @RenderBody() <div class="row bt-footer">
+            <div class="col-md-4 col-sm-6 content-sec">
+                <p>TRAINING IN BOTECH</p>
+                <ul>
+                    <li>Azure Training in Noida</li>
+                    <li>Dataware Housing Training in Noida</li>
+                    <li>Devops Training in Noida</li>
+                    <li>Angular Training in Noida</li>
+                    <li>Blazer Training in Noida</li>
+                    <li>Blazer Training in Noida</li>
+                    <li>ASP.Net Core Training in Noida</li>
+                    <li>Cloud Computing Training in Noida</li>
+                    <li>IOT Training in Noida</li>
+                    <li>Python Programming Training in Noida</li>
+                </ul>
+            </div>
+            <div class="col-md-2  col-sm-6 content-sec">
+                <p>our services</p>
+                <ul>
+                    <li>General Staffing</li>
+                    <li>Professional Staffing</li>
+                    <li>Outsourcing</li>
+                    <li>Hire Train Deploy</li>
+                    <li>E-Tender</li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-6 content-sec">
+                <p>quick links</p>
+                <ul>
+                    <li>Pertners</li>
+                    <li>About</li>
+                    <li><a href="/home/faqs">FAQ's</a></li>
+                    <li>Badges</li>
+                    <li>Privacy Policy</li>
+                    <li>Term of Use</li>
+                    <li>Career</li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-6 content-sec">
+                <p>contact details</p>
+                <ul>
+                    <li><i class="fas fa-home"></i> H 82 Sector 12, Noida, UP 201301</li>
+                    <li><i class="fas fa-mobile-alt"></i> Phone : <a href="tel:+91-8799798300">8799798300</a></li>
+                    <li><i class="fas fa-globe-asia"></i> Fax : <a href="fax:+91-8799798300">8799798300</a></li>
+                    <li><i class="fas fa-envelope"></i> Email : <a href="email:info@botechsoft.com">info@botechsoft.com</a></li>
+                    <li class="socialsite">
+                        <a href="https://twitter.com/BotechSoftware" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://www.facebook.com/Botech-Software-Solutions-2267739333471132/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://www.linkedin.com/company/botechsoftware" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>COPYRIGHT 2020. ALL RIGHTS RESERVED.</p>
+                <p>Design and Deviloped by <span>Botech</span></p>
+            </div>
+        </div>
     </div>
+   
     <script>
         $(document).ready(function () {
             $('.humbarger').on('click', function () {
                 $('.mobile-menu').toggleClass('hidden-menu');
             });
-           
+
         });
-         $(window).resize(function () {
-                if ($(document).width() > 819) {
-                     $('.mobile-menu').addClass('hidden-menu');
-                }
-         });
+        $(window).resize(function () {
+            if ($(document).width() > 819) {
+                $('.mobile-menu').addClass('hidden-menu');
+            }
+        });
         window.onscroll = function () { scrollFunction() };
 
-function scrollFunction() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        document.getElementById("top-nav").style.padding = "5px 0px";
-        document.getElementById("menu").style.marginTop = "63px";
-  } else {
-        document.getElementById("top-nav").style.padding = "25px 0px";
-        document.getElementById("menu").style.marginTop = "103px";
-  }
-}
+        function scrollFunction() {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById("top-nav").style.padding = "5px 0px";
+                document.getElementById("menu").style.marginTop = "63px";
+            } else {
+                document.getElementById("top-nav").style.padding = "25px 0px";
+                document.getElementById("menu").style.marginTop = "103px";
+            }
+        }
     </script>
 </body>
 
