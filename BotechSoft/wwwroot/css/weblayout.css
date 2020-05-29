@@ -357,7 +357,7 @@ div.brand-name {
             }
 
 .copyright {
-    width: 100vw;
+    width: 100%;
     text-align: center;
     font-size: 9px;
     background: #1e2433;
@@ -378,7 +378,7 @@ div.brand-name {
 
 .content-sec {
     padding: 0;
-    padding-left: 85px;
+    padding-left: 85px !important;
 }
 
 .socialsite {
