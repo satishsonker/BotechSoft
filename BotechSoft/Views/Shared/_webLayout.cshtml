@@ -6,6 +6,8 @@
     <title>@ViewBag.Title</title>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/apiUrls.js"></script>
+    <script src="~/js/api.js"></script>
     <link href="~/css/weblayout.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -53,21 +55,32 @@
                             <li><a href="/home/index">Home</a></li>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="/home/contactus">Contact Us</a></li>
                         </ul>
                     </div>
                     <ul class="header-menu  d-none d-md-block">
                         <li><a href="/home/index">Home</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li>
+                            <div class="dropdown-wrapper menu-button">
+                                <a class="menu-button" href="#">Contact Us</a>
+                                <div class="drop-menu">
+                                    <a class="menu-button" href="/home/contactus?type=Contactus">Contact Us</a>
+                                    <a class="menu-button" href="/home/contactus?type=SubmitCv">Submit Your CV</a>
+                                    <a class="menu-button" href="/home/contactus?type=referfriend">Refer a Friend</a>
+                                    <a class="menu-button" href="/home/faqs">FAQ's</a>
+                                </div>
+                            </div>
+                            @*<a href="/home/contactus">Contact Us</a>*@
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <div class="body-container">
-        @RenderBody() 
+        @RenderBody()
         <div class="row bt-footer">
             <div class="col-md-4 col-sm-6 content-sec">
                 <p>TRAINING IN BOTECH</p>
@@ -126,7 +139,7 @@
             </div>
         </div>
     </div>
-   
+
     <script>
         $(document).ready(function () {
             $('.humbarger').on('click', function () {

@@ -15,8 +15,9 @@ namespace BotechSoft.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult ContactUs([FromQuery]string type)
         {
+            TempData["contacttype"] = type;
             return View();
         }
 
