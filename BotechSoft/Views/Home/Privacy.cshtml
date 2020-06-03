@@ -1,6 +1,67 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
+﻿
+@{
+    ViewData["Title"] = "Privacy";
+    Layout = "~/Views/Shared/_webLayout.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
+<div class="container" style="margin-top:40px;margin-bottom:40px;">
+    <div class="row">
+        <div class="col-md policy-container">
+            <h5>Privacy Policy</h5>
+            <p>
+                Your access to and use of this site is subject to the following terms and conditions and all applicable laws. By accessing and using this site, you accept the following terms and conditions, without limitation or qualification.
+            </p>
+            <p>
+                This website is administered by Botech Software. The primary purpose of botechsoft.com is to be a dynamic resource and business tool to assist you in understanding Botech offerings and matching your needs and requirements with Botech offerings. It is also utilized as a portal for current and future employees to provide, and access, information in a secure and controlled way. We want you to feel secure when visiting our site and are committed to maintaining your privacy when doing so.
+            </p>
+            <h6>
+                Why do we gather information?:
+            </h6>
+            <p>
+                (1) To assess the sites effectiveness and usefulness to those who enter the site and search it contents;
+            </p>
+            <p>
+                (2) To allow for application to positions posted on the site; and
+            </p>
+            <p>
+                (3) To allow electronic submission of required paperwork.
+            </p>
+            <p>
+                One example of information we collect indirectly is through our Internet access logs. When you access botechsoft.com, your Internet address is automatically collected and is placed in our Internet access logs.
+            </p>
+            <h5>
+                Use of Cookies
+            </h5>
+            <p>We use cookies to gather information about your computer for our services and to provide statistical information regarding the use of our Website/webpage. Such information will not identify you personally – it is statistical data about our visitors and their use of our Website/webpage. This statistical data does not identify any personal details whatsoever. We may also gather information about your general Internet use by using a cookie file. Where used, these cookies are downloaded to your computer automatically.</p>
+            <p> This cookie file is stored on the hard drive of your computer, as cookies contain information that is transferred to your computer’s hard drive. They help us to improve our Website/webpage and the service that we provide to you. All computers have the ability to decline cookies. This can be done by activating the setting on your browser which enables you to decline the cookies. Please note that should you choose to decline cookies, you may be unable to access particular parts of our Website/webpage.</p>
+            <p>It is completely up to you whether or not you want to access and use this site and provide the information requested if applicable.</p>
 
-<p>Use this page to detail your site's privacy policy.</p>
+        </div>
+    </div>
+</div>
+<style>
+    .policy-container {
+        border: 1px solid #ececec;
+        border-radius: 4px;
+        box-shadow: 1px 1px 4px #c3c3c3;
+        padding: 20px 30px;
+        text-align:justify;
+        font-size:14px;
+    }
+
+    .policy-container p{
+        padding:0 10px;
+    }
+
+        .policy-container h5 {
+            background: #80808030;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .policy-container h6 {
+            background: #80808010;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+</style>
+

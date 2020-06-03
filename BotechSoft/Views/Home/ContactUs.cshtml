@@ -3,14 +3,25 @@
     ViewData["Title"] = "ContactUs";
     Layout = "~/Views/Shared/_webLayout.cshtml";
 }
-<div class="container container-query">
-    <div class="row">
-        <div class="col-md-12">  <div class="query-label">Business Enquiry</div></div>
-    </div>
-    <div class="row">
-        @{
-            string _type = TempData["contacttype"] != null ? TempData["contacttype"].ToString().ToLower() : "contactus";
-            <div class="col-md-6">
+@{
+    string _type = TempData["contacttype"] != null ? TempData["contacttype"].ToString().ToLower() : "contactus";
+    <div class="container container-query">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="query-label">
+                    @if (_type == "contactus")
+                    {<text>Business Enquiry</text>}
+                else if (_type == "submitcv")
+                {<text>Submit Your CV</text> }
+            else
+            {<text>Business Enquiry</text>}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-md-6 col-sm-12">
                 <div class="contact-heading">
                     @if (_type == "contactus")
                     {<text>Contact Us</text>}
@@ -20,7 +31,7 @@
             {<text>Contact Us</text>}
                 </div> <img src="~/Images/bg_enquiry.jpg" class="contact-img" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
 
                 @if (TempData["contacttype"] != null && TempData["contacttype"].ToString().ToLower() == "contactus")
                 {
@@ -37,28 +48,30 @@
 
 
             </div>
-        }
+        </div>
     </div>
-</div>
+}
 <style>
     .contact-heading {
         position: absolute;
         right: 0;
         border: 0px solid #0000008c;
-        width: 96%;
+        width: 94%;
         text-align: right;
         line-height: 47px;
         padding-right: 20px;
-        background: #0000001c;
-        color: #777676;
-        top: 39%;
-        z-index: -1;
+        background: #b8b8b83d;
+        color: #d7d7d7;
+        bottom: 0;
+        z-index: 0;
         text-transform: uppercase;
         font-weight: bold;
+        left: 18px;
     }
 
     .contact-img {
-        max-height: 280px;
+        max-height: 291px;
+        width: 100%;
     }
 
     .form .form-group {

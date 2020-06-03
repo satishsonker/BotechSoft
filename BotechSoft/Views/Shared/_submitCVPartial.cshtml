@@ -8,8 +8,9 @@
             </select>
             <input type="text" class="" required id="usermobile" name="usermobile" placeholder="Mobile *">
         </div>
-        <input type="text" class="" required id="userlocation" name="userlocation" placeholder="Location *">
-        <input type="number" class="" required id="userexperience" name="userexperience" placeholder="Experience *">
+        <input type="text" class="" required id="userlocation" maxlength="30" name="userlocation" placeholder="Location *">
+        <input type="number" class="" required id="userexperience" min="0" max="60" name="userexperience" placeholder="Experience *">
+        <input type="number" class="" required id="userskill" name="userskill" placeholder="Skill *">
         <input type="file" name="file" id="file" required />
         <div style="margin-top: -6px;font-size: 10px;">Supported Formats: .docx, .doc &amp; .pdf</div>
         <div class="form-check">
@@ -61,6 +62,8 @@
             isdcode: $('#isdcode').val(),
             userlocation: $('#userlocation').val(),
             query: $('#query').val(),
+            skill: $('#userskill').val(),
+            file:$('#file').val(),
             IsTCAccepted: $('#IsTCAccepted').is(':checked')
         };
 
@@ -124,10 +127,11 @@
         }
 
     .form {
-        border: 1px solid wheat;
-        padding: 0px;
-        background: white;
-        border-radius: 6px;
+      border: 1px solid white;
+    padding: 0px;
+    background: #faf6f6;
+    border-radius: 6px;
+    box-shadow: 1px 1px 11px grey;
     }
 
         .form input:not([tyep="checkbox"]), select {

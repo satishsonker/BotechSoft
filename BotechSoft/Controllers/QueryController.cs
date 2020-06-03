@@ -43,7 +43,7 @@ namespace BotechSoft.Controllers
                 var files = Request.Form.Files.Any() ? Request.Form.Files : new FormFileCollection();
 
                 var temp = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "emailTemplate", "submitCV.html"));
-                var message = new Message(new string[] { "btech.csit@gmail.com", "infotovikas@gmail.com" }, "Job Application from Botechsoft.com - ",temp.Replace("##exp#", queryModel.UserExperience).Replace("##location#", queryModel.UserLocation).Replace("##email#", queryModel.UserEmail).Replace("##name##",queryModel.UserName), files);
+                var message = new Message(new string[] { "btech.csit@gmail.com", "infotovikas@gmail.com" }, "Job Application from Botechsoft.com - ",temp.Replace("##exp#", queryModel.UserExperience).Replace("##skill#", queryModel.UserSkill).Replace("##location#", queryModel.UserLocation).Replace("##email#", queryModel.UserEmail).Replace("##name##",queryModel.UserName), files);
                 _emailSender.SendEmail(message);
 
                 return RedirectToAction("contactus","home");

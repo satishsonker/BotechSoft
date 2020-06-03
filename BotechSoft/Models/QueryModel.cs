@@ -18,6 +18,7 @@ namespace BotechSoft.Models
         public bool IsTCAccepted { get; set; }
         public string QueryType { get; set; }
         public string UserExperience { get; set; }
+        public string UserSkill { get; set; }
         public string Query { get; set; }
         public IFormFileCollection file { get; set; }
     }
