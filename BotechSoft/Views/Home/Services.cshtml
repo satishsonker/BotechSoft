@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewData["Title"] = "Services";
+    Layout = "~/Views/Shared/_webLayout.cshtml";
+}
+
+<div class="container ser-container">
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="ser-heading">Get our staffing expertise in your speciality area</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 ser-list-outer">
+            <ul class="ser-list-inner">
+                <li class="gs"><i class="fas fa-users"></i> General Staffing</li>
+                <li class="ps"><i class="fas fa-user-tie"></i> Professional Staffing</li>
+                <li class="os"><i class="fas fa-comment-dollar"></i> Outsourcing</li>
+                <li class="htd"><i class="fas fa-users-cog"></i> Hire Train Deploy</li>
+                <li class="et"><i class="fas fa-atom"></i> E-Tender</li>
+            </ul>
+        </div>
+        <div class="col-md-9 ser-data">
+            <div class="gs">
+                <i class="fas fa-users"></i> General Staffing<br />
+                <hr />
+                <p>Employers understand that temporary staffing provides them the flexibility to reconcile with the changing demands of the business. It can also be adapted to the seasonal nature of business and countering business uncertainties. We were among the first to realize and maximize the benefits of hiring staff on a temporary basis. With companies across the globe, laying critical emphasis on their human resource management, temporary staffing is a fast catching up trend.</p>
+                <p>We offer our clients tailored solutions for their workforce requirements through innovative models. With continuous investments in statutory compliance, we are committed to maintaining the highest standards of ethical business conduct in our day-to-day operations.</p>
+                <p>The largest branch network of 30+ branches in the industry brings us closer to clients, associates, and candidates, enabling us to deliver staffing solutions for almost every sector, including specialist industries.</p>
+            </div>
+            <div class="ps">
+                <i class="fas fa-user-tie"></i> Professional Staffing<br />
+                <hr />
+                <p>
+                    Different verticals and sectors require different strategies to attract the right talent. Growth supported by megatrends: skills imbalances, demographics, the gig economy have driven different verticals to adopt different strategies. In a fast-paced professional landscape. Our Professional Staffing business caters to high-end skill fulfillment across mainstream and niche technologies to meet our client’s temporary staffing needs. We target specific verticals introducing - experts in the industry and domain specific hiring.
+                </p>
+                <p>
+                    We leverage our digital technology and innovation expertise upgrading the tools available to our Professional Staffing recruiters while making our operations more efficient.
+                </p>
+                <p>
+                    We currently support the following sectors:
+                    IT
+                    Product based IT companies
+                    BFSI & Fintech
+                    Engineering
+                    Pharma & Life Sciences
+                </p>
+            </div>
+            <div class="os">
+                <i class="fas fa-comment-dollar"></i> Outsourcing<br />
+                <hr />
+                <p>
+                    We are diversifying outside of traditional staffing solutions, particularly into outsourcing. Organizations with intensive manual labour in multiple industry sectors are looking for an efficiently managed flexible workforce through well-defined KPIs. We cover flexible workforce planning, talent attraction, recruitment process, talent development, and productivity management.
+                </p><p>
+                    Understanding what drives our outsourcing clients is key. Our outsourcing “managed staffing” program engage in client KPIs that are critical for them. We design unique solutions to help our clients become more competitive by sizing adequately and helping them make the most from a productive and efficient flexible workforce.
+
+                </p><p>
+                    Merchandising: Shelf Space Management, Inventory Management, Planogram Maintenance, Product Displays, Point Of Purchase and Promotional Material Installations, Fixture Installation, and Tracking & Shelf Resets and Remodels.
+                </p><p>
+                    Sales Force: Modern and Traditional recruitment, Trade Salesforce Outsourcing, Brand/ Beauty Consultants, Feet on Street & Store Personnel.
+                </p><p>
+                    Audits: Price, Facings, Shelf Space Data Collection, Planogram and Fixture Compliance & Mystery Shopping and Customer Survey’s.
+                </p><p>Promotions: Product Demonstrations, Sample Give-Away’s & Tasting Events.</p>
+            </div>
+            <div class="htd">
+                <i class="fas fa-users-cog"></i> Hire Train Deploy<br />
+                <hr />
+                <p>
+                    The world of work is evolving at a fast pace, and organizations must be ready to keep up. Talent shortages challenge employers around the globe, and India is no exception. As one of the world’s leading emerging economies, India is under incredible pressure to keep up with the growing demand — but all too often, the available talent lacks the technical training and soft skills employers need now.
+
+                </p><p>Our Hire Train Deploy program is a high touch model addressing skills shortage and helping people from all walks of life scale-up and position themselves for success. We develop tailor-made Hire Train Deploy solutions to meet client needs pan India.</p>
+            </div>
+            <div class="et">
+                <i class="fas fa-atom"></i> E-Tender<br /><hr />
+                <p>
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                </p><p>
+                    Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                </p> Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ser-sticky">
+    <a href="/home/contactus" target="_self">
+        <i class="fas fa-comment"></i>
+        <small style="color:black">Enquiry</small>
+    </a>
+</div>
+<style>
+    .ser-sticky
+    {
+            position: fixed;
+    bottom:50px;
+    right: 20px;
+    z-index: 11111;
+    color: wheat;
+    width: 50px;
+    height: 50px;
+    }
+
+    .ser-sticky a{
+        color: orange !important;
+        text-decoration:none;
+    }
+    .ser-sticky a i{
+        transition:1s;
+        font-size:50px;
+    }
+     .ser-sticky a i:hover {
+         transform:scale(1.3);
+    }
+     .ser-sticky small
+     {
+         position: absolute;
+    left: 3px;
+    top: 14px;
+     }
+    .ser-container {
+        border: 1px solid #fffdfd;
+        border-radius: 4px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 1px 1px 5px #808080f0;
+        min-height: 100vh;
+    }
+
+    .ser-heading {
+        margin: 20px;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .ser-list-outer {
+        padding: 10px;
+    }
+
+    .ser-container h6 {
+    }
+
+    .ser-list-inner {
+        list-style: none;
+        border: 1px solid #b3b2b2;
+        border-radius: 4px;
+    }
+
+        .ser-list-inner li {
+            line-height: 31px;
+            padding: 19px 10px;
+            border-bottom: 1px solid gainsboro;
+            transition: 1s;
+            transition-property: all;
+        }
+
+            .ser-list-inner li:hover {
+                background: #170135;
+                color: white;
+            }
+
+                .ser-list-inner li:hover + .ser-list-inner li i {
+                    color: white !important;
+                }
+
+            .ser-list-inner li i {
+                font-size: 37px;
+                border-radius: 23px;
+                width: 50px;
+            }
+
+    .ser-data div {
+        display: none;
+    }
+
+     .ser-data {
+         padding: 30px 10px;
+    }
+
+    .ser-active {
+        border-left: 3px solid orange;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.ser-data .' + $('.ser-list-inner li:eq(0)').attr('class')).show();
+        $('.ser-list-inner li:eq(0)').addClass('ser-active');
+
+
+    });
+    $(document).on('click', '.ser-list-inner li', function () {
+        $('.ser-data div').hide();
+        $('.ser-list-inner li').removeClass('ser-active');
+        $('.ser-data .' + $(this).attr('class')).show();
+        $(this).addClass('ser-active');
+    });
+</script>
+
