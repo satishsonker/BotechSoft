@@ -1,4 +1,4 @@
-﻿const baseUrl = location.host;
+﻿const baseUrl = location.origin;
 //const baseUrl = "http://letspaint.somee.com";
 const url = {
     root: {

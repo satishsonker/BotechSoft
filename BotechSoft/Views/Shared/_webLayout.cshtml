@@ -55,8 +55,28 @@
                     <div class="mobile-menu hidden-menu">
                         <ul class="header-mobile-menu">
                             <li><a href="/home/index">Home</a></li>
-                            <li><a href="/home/aboutus">About Us</a></li>
-                            <li><a href="#">Services</a></li>
+                            <li>
+                                <div class="dropdown-wrapper menu-button">
+                                    <a class="menu-button" href="#">About Us</a>
+                                    <div class="drop-menu" style="width: 100px;">
+                                        <a class="menu-button" href="/home/Aboutus">About Us</a>
+                                        <a class="menu-button" href="/home/privacy">Privacy</a>
+                                        <a class="menu-button" href="/home/career">Career</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown-wrapper menu-button">
+                                    <a class="menu-button" href="#">Services</a>
+                                    <div class="drop-menu" style="width: 100px;">
+                                        <a class="menu-button" href="/home/services?type=dm">Development & Maintenance</a>
+                                        <a class="menu-button" href="/home/services?type=ittc">IT Training & Technology Consulting</a>
+                                        <a class="menu-button" href="/home/services?type=bpo">Business Process Outsourcing</a>
+                                        <a class="menu-button" href="/home/services?type=ps">Professional Staffing</a>
+                                        <a class="menu-button" href="/home/services?type=ds">Digital Solutions</a>
+                                    </div>
+                                </div>
+                            </li>
                             <li>
                                 @*<a href="/home/contactus">Contact Us</a>*@
                                 <div class="dropdown-wrapper menu-button">
@@ -73,8 +93,28 @@
                     </div>
                     <ul class="header-menu  d-none d-md-block">
                         <li><a href="/home/index">Home</a></li>
-                        <li><a href="/home/aboutus">About Us</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li>
+                            <div class="dropdown-wrapper menu-button">
+                                <a class="menu-button" href="#">About Us</a>
+                                <div class="drop-menu">
+                                    <a class="menu-button" href="/home/Aboutus">About Us</a>
+                                    <a class="menu-button" href="/home/privacy">Privacy</a>
+                                    <a class="menu-button" href="/home/career">Career</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-wrapper menu-button">
+                                <a class="menu-button" href="#">Services</a>
+                                <div class="drop-menu">
+                                    <a class="menu-button" href="/home/services?type=dm">Development & Maintenance</a>
+                                    <a class="menu-button" href="/home/services?type=ittc">IT Training & Technology Consulting</a>
+                                    <a class="menu-button" href="/home/services?type=bpo">Business Process Outsourcing</a>
+                                    <a class="menu-button" href="/home/services?type=ps">Professional Staffing</a>
+                                    <a class="menu-button" href="/home/services?type=ds">Digital Solutions</a>
+                                </div>
+                            </div>
+                        </li>
                         <li>
                             <div class="dropdown-wrapper menu-button">
                                 <a class="menu-button" href="#">Contact Us</a>
@@ -95,7 +135,7 @@
     <div class="body-container">
         @RenderBody()
         <div class="row bt-footer">
-            <div class="col-md-4 col-sm-6 content-sec">
+            <div class="col-md-3 col-sm-6 content-sec">
                 <p>TRAINING IN BOTECH</p>
                 <ul>
                     <li>Azure Training in Noida</li>
@@ -110,18 +150,18 @@
                     <li>Python Programming Training in Noida</li>
                 </ul>
             </div>
-            <div class="col-md-2  col-sm-6 content-sec">
+            <div class="col-md-3  col-sm-6 content-sec">
                 <p>our services</p>
                 <ul>
-                    <li><a href="/home/services">General Staffing</a></li>
-                    <li><a href="/home/services">Professional Staffing</a></li>
-                    <li><a href="/home/services">Outsourcing</a></li>
-                    <li><a href="/home/services">Hire Train Deploy</a></li>
-                    <li><a href="/home/services">E-Tender</a></li>
+                    <li><a href="/home/services?type=dm">Development & Maintenance</a></li>
+                    <li><a href="/home/services?type=ittc">IT Training & Technology Consulting</a></li>
+                    <li><a href="/home/services?type=bpo">Business Process Outsourcing</a></li>
+                    <li><a href="/home/services?type=ps">Professional Staffing</a></li>
+                    <li><a href="/home/services?type=ds">Digital Solutions</a></li>
                 </ul>
             </div>
             <div class="col-md-2 col-sm-6 content-sec">
-                <p>quick links</p>
+                <p>Quick links</p>
                 <ul>
                     <li>Pertners</li>
                     <li><a href="/home/aboutus">About</a></li>

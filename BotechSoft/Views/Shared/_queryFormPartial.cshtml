@@ -33,7 +33,7 @@
     </div>
 </form>
 <script>
-    $(document).ready(function () {
+    $('.form').ready(function () {
         $(document).on('keyup keydown keypress paste', '#query', function (e) {
             $('#query-length').removeClass();
             $('#query-length').text(`${$(this).val().length}/500`);
