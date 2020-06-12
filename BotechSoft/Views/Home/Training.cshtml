@@ -1,0 +1,260 @@
+﻿
+@{
+    ViewData["Title"] = "Training";
+    Layout = "~/Views/Shared/_webLayout.cshtml";
+}
+
+<div class="container ser-container">
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="ser-heading">Get our staffing expertise in your speciality area</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 ser-list-outer">
+            <ul class="ser-list-inner">
+                <li class="at"><span>Azure Training</span> </li>
+                <li class="dht"><span>Dataware Housing Training</span></li>
+                <li class="dt"><span>Devops Training</span></li>
+                <li class="ant"><span>Angular Training</span></li>
+                <li class="btt"><span> Blazor Training</span></li>
+                <li class="act"><span> ASP.Net Core Training</span></li>
+            </ul>
+        </div>
+        <div class="col-md-9 ser-data">
+            <div class="at">
+                <h4>Azure Training
+                </h4><br />
+                <hr />
+                <ul style="margin-left: 25px;">
+                    <li> We provide a comprehensive  and in-depth  training in Microsoft Azure.</li>
+                    <li>It includes preparing for various cloud certificates.</li>
+                    <li>We help candidates to grasp the Azure cloud concepts from the basic to  the master level.</li>
+                    <li>Training is provided too at the corporate level to migrate the on-premises application to the cloud</li>
+                </ul>
+            </div>
+            <div class="dht">
+                <h4>Dataware Housing Training
+                </h4><br />
+                <hr />
+                <ul style="margin-left: 25px;">
+                    <li>We provide a comprehensive  and easy to understand training in Dataware House.</li>
+                    <li>It gives you in-depth understanding of various technical terminologies like OLTP  ,OLAP,Facts etc.</li>
+                    <li>You will have a complete understanding of ETL world.</li>
+                </ul>
+            </div>
+            <div class="dt">
+                <h4>Devops Training
+                </h4><br />
+                <hr />
+
+                <ul style="margin-left: 25px;">
+                    <li>World is changing fast and Devops knowledge is a must in current times.</li>
+                    <li>We will  train you to understand and implement Devops in various steps of a project lifecycle.</li>
+                    <li>From opening  an account to various steps of a Pipeline we will guide you for everything.</li>
+                </ul>
+            </div>
+            <div class="ant">
+                <h4>Angular Training
+                </h4><br />
+                <hr />
+                <ul style="margin-left: 25px;">
+                    <li>Knowledge of a JS Framework is a must now a days and what could be best other than Angular.</li>
+                    <li>We will teach you  Angular in easy and playful way.</li>
+                    <li>All the hard concepts like lifecycle of the Angular application to data movement in the Angular world we will train you in everything.</li>
+                    <li>We provide training too at the corporate level to migrate the old JavaScript application to an Angular application</li>
+                </ul>
+            </div>
+            <div class="btt">
+                <h4>Blazor Training</h4><br />
+                <hr />
+                <ul style="margin-left: 25px;">
+                    <li>Microsoft has once again surprised us with Blazor and we accept it.</li>
+                    <li>We will train you in the future of UI world for Microsoft ASP.net application.</li>
+                    <li>Training will be comprehensive and deep and adjustable to suit your time and interest.</li>
+                </ul>
+            </div>
+            <div class="act">
+                <h4>ASP.Net Core Training</h4><br />
+                <hr />
+                <ul style="margin-left: 25px;">
+                    <li>ASP.Net is surely  and rapidly being replaced by ASP.Net core.</li>
+                    <li>We train you to understand all the must to understand concepts.</li>
+                    <li>From inbuilt dependency Injection to creating your own middleware we will clarify all your doubts.</li>
+                    <li>Performance enhancement to creating a service oriented project architecture with ASP.Net core  we will explain everything to make you a master of ASP.Net core.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ser-sticky">
+    <a href="/home/contactus" target="_self">
+        <i class="fas fa-comment"></i>
+        <small style="color:black">Enquiry</small>
+    </a>
+</div>
+<style>
+    .ser-list-inner span {
+        margin-left: 13px;
+        position: absolute;
+        margin-top: -15px;
+        font-size: 16px;
+        font-weight: 500;
+        color: darkolivegreen;
+    }
+
+    .ser-sticky {
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
+        z-index: 11111;
+        color: wheat;
+        width: 50px;
+        height: 50px;
+    }
+
+        .ser-sticky a {
+            color: orange !important;
+            text-decoration: none;
+        }
+
+            .ser-sticky a i {
+                transition: 1s;
+                font-size: 50px;
+            }
+
+                .ser-sticky a i:hover {
+                    transform: scale(1.3);
+                }
+
+        .ser-sticky small {
+            position: absolute;
+            left: 3px;
+            top: 14px;
+        }
+
+    .ser-container {
+        border: 1px solid #fffdfd;
+        border-radius: 4px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 1px 1px 5px #808080f0;
+        min-height: 100vh;
+    }
+
+    .ser-heading {
+        margin: 20px 0;
+        text-align: center;
+        font-size: 20px;
+        background: #170135;
+        padding: 8px 5px;
+        border-radius: 4px;
+        color: white;
+    }
+
+    .ser-list-outer {
+        padding: 10px;
+    }
+
+    .ser-container h6 {
+    }
+
+    .ser-list-inner {
+        list-style: none;
+        border: 1px solid #b3b2b2;
+        border-radius: 4px;
+    }
+
+        .ser-list-inner li {
+            line-height: 31px;
+            padding: 19px 10px;
+            border-bottom: 1px solid gainsboro;
+            transition: 1s;
+            transition-property: all;
+        }
+
+            .ser-list-inner li:hover {
+                background: #170135;
+                color: white;
+            }
+
+                .ser-list-inner li:hover + .ser-list-inner li i {
+                    color: white !important;
+                }
+
+            .ser-list-inner li i {
+                font-size: 37px;
+                border-radius: 23px;
+                width: 50px;
+            }
+
+    .ser-data div {
+        display: none;
+    }
+
+    .ser-data {
+        padding: 30px 10px;
+    }
+
+        .ser-data p {
+            text-align: justify;
+        }
+
+    .ser-active {
+        border-left: 3px solid orange;
+        background: #1701352e;
+    }
+
+    .tcd {
+        border: 1px solid gray;
+        border-radius: 4px;
+        padding: 5px;
+        text-align: center;
+        box-shadow: 1px 1px 1px gray;
+        min-height: 102px;
+    }
+
+    .tcd-info {
+        font-size: 12px;
+        color: gray;
+    }
+
+    .tcd-heading {
+        font-size: 14px;
+        color: gray;
+    }
+
+    .tcd i {
+        font-size: 25px;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.ser-data .' + $('.ser-list-inner li:eq(0)').attr('class')).show();
+        $('.ser-list-inner li:eq(0)').addClass('ser-active');
+        var $query = getUrlVars();
+        if ($query.type) {
+            $('.ser-data div').hide();
+            $(`.ser-list-inner li.${$query.type}`).click();
+        }
+
+    });
+    $(document).on('click', '.ser-list-inner li', function () {
+        $('.ser-data div').hide();
+        $('.ser-list-inner li').removeClass('ser-active');
+        $('.ser-data .' + $(this).attr('class')).show();
+        $(this).addClass('ser-active');
+    });
+
+    function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+</script>
+

@@ -4,7 +4,8 @@ const url = {
     root: {
         home: {},
         query: {
-            sendQuery:'/query/sendQuery'
+            sendQuery: '/query/sendQuery',
+            sendEmail: "/query/SendEmail"
         }
     }
 }

@@ -21,36 +21,49 @@ namespace BotechSoft.Controllers
         {
             try
             {
-                var files = Request.Form.Files.Any() ? Request.Form.Files : new FormFileCollection();
-
-                var temp = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "emailTemplate", "query.html"));
-                var message = new Message(new string[] { "btech.csit@gmail.com", "infotovikas@gmail.com" }, "User Query from Botechsoft.com - " + queryModel.UserName, temp.Replace("##location##", queryModel.UserLocation).Replace("##designation##", queryModel.UserDesignation).Replace("##company##", queryModel.UserCompany).Replace("##querytype##", queryModel.QueryType).Replace("##email##", queryModel.UserEmail).Replace("##name##", queryModel.UserName).Replace("##userquery##", queryModel.Query).Replace("##mobile##",queryModel.IsdCode+"-"+queryModel.UserMobile),null);
+                string templatPath = Path.Combine(Directory.GetCurrentDirectory(), "emailTemplate", "query.html");
+                var emailHtmlTemplat = System.IO.File.ReadAllText(templatPath);
+                List<string> receivers = new List<string>() { "btech.csit@gmail.com", "infotovikas@gmail.com" };
+                string subject = "User Query from Botechsoft.com - " + queryModel.UserName;
+                string body = emailHtmlTemplat.Replace("##location##", queryModel.UserLocation)
+                                                .Replace("##designation##", queryModel.UserDesignation)
+                                                .Replace("##company##", queryModel.UserCompany)
+                                                .Replace("##querytype##", queryModel.QueryType)
+                                                .Replace("##email##", queryModel.UserEmail)
+                                                .Replace("##name##", queryModel.UserName)
+                                                .Replace("##userquery##", queryModel.Query)
+                                                .Replace("##mobile##", queryModel.IsdCode + "-" + queryModel.UserMobile);
+                var message = new Message(receivers, subject, body, null);
                 _emailSender.SendEmail(message);
-
                 return Json("Sent");
             }
             catch (Exception ex)
             {
-                return Json(new { ex });
+                return Json(new {error= ex.Message,code=500 });
             }
         }
 
         [HttpPost]
-        public ActionResult SendEmail([FromForm] QueryModel queryModel)
+        public JsonResult SendEmail([FromForm] QueryModel queryModel)
         {
             try
             {
                 var files = Request.Form.Files.Any() ? Request.Form.Files : new FormFileCollection();
-
-                var temp = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "emailTemplate", "submitCV.html"));
-                var message = new Message(new string[] { "btech.csit@gmail.com", "infotovikas@gmail.com" }, "Job Application from Botechsoft.com - ",temp.Replace("##exp#", queryModel.UserExperience).Replace("##skill#", queryModel.UserSkill).Replace("##location#", queryModel.UserLocation).Replace("##email#", queryModel.UserEmail).Replace("##name##",queryModel.UserName), files);
+                List<string> receivers = new List<string>() { "btech.csit@gmail.com", "infotovikas@gmail.com" };
+                var emailHtmlTemplat = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "emailTemplate", "submitCV.html"));
+                string subject = "Job Application from Botechsoft.com - " + queryModel.UserSkill;
+                string body = emailHtmlTemplat.Replace("##exp##", queryModel.UserExperience)
+                                                .Replace("##skill##", queryModel.UserSkill)
+                                                .Replace("##location##", queryModel.UserLocation)
+                                                .Replace("##email##", queryModel.UserEmail)
+                                                .Replace("##name##", queryModel.UserName);
+                var message = new Message(receivers,subject,body,files);
                 _emailSender.SendEmail(message);
-
-                return RedirectToAction("contactus","home");
+                return Json("Sent");
             }
             catch (Exception ex)
             {
-                return RedirectToAction("contactus", "home");
+                return Json(new { error = ex.Message, code = 500 });
             }
         }
     }

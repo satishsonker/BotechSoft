@@ -6,7 +6,7 @@
         <input type="email" class="" required id="useremail" name="useremail" placeholder="Email *">
         <div class="mobile-container">
             <select id="isdcode" required class="" name="isdcode">
-                <option value="India +91">India +91</option>
+                <option value="+91">India +91</option>
             </select>
             <input type="text" class="" required id="usermobile" name="usermobile" placeholder="Mobile *">
         </div>
@@ -23,8 +23,8 @@
         <textarea id="query" name="query" placeholder="Your query *" required class="form-control" cols="90" rows="3"></textarea>
         <small id="query-length" style="float: right;">0/500</small>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" style="width:3%;" id="IsTCAccepted" name="IsTCAccepted">
-            <label class="form-check-label" style="width: 100px;" for="chkTC">Term &amp; Condition</label>
+            <input type="checkbox" class="form-check-input" style="width:6%;height: 22px;" id="IsTCAccepted" name="IsTCAccepted">
+            <label class="form-check-label" style="width: 100px; cursor:pointer;margin-left: 12px;" for="chkTC" data-toggle="modal" data-target="#tandcModal"><a> Term &amp; Condition</a></label>
         </div>
         <div style="text-align: right;">
             <div id="queryMsg" class="queryMsg">Your query has been sent.</div>
@@ -33,7 +33,7 @@
     </div>
 </form>
 <script>
-    $('.form').ready(function () {
+    $(document).ready(function () {
         $(document).on('keyup keydown keypress paste', '#query', function (e) {
             $('#query-length').removeClass();
             $('#query-length').text(`${$(this).val().length}/500`);
@@ -71,13 +71,14 @@
                     $('#sendQuery').removeAttr('disabled');
                     $('#username').val('');
                     $('#useremail').val('');
-                    $('#querycategory').val('');
+                    $('#querytype').val('');
                     $('#usermobile').val('');
                     $('#query').val('');
                     $('#usercompany').val('');
                     $('#userdesignation').val('');
                     $('#userlocation').val('');
-                    $('#query-length').removeClass().text(`0/500`);
+                    $('#query-length').removeClass().text(`0/500`); $('#IsTCAccepted').prop('checked', false);
+                    setTimeout(function () { $('.queryMsg').hide(); }, 5000);
                 }).catch(function () {
                     $('.queryMsg').removeClass().addClass('queryMsg').addClass('form-error').text('Unable to send your query').show();
                 });
@@ -207,10 +208,10 @@
             float:right;
         }
 
-        .form textarea {
-            resize: none;
-            font-size: 12px;
-        }
+    .form textarea {
+        resize: none;
+        font-size: 12px;
+    }
 
         .form label {
             font-size: 12px;
