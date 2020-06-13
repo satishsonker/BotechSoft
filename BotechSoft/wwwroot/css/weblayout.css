@@ -213,7 +213,7 @@ div.brand-name {
 
 .mobile-menu {
     border: 1px solid black;
-    height: calc(100vh - 125px);
+    height: calc(100vh);
     width: 50vw;
     background: var(--theme-color);
     position: absolute;
@@ -233,11 +233,31 @@ div.brand-name {
 }
 
 @media only screen and (max-width: 768px) {
+    .body-container {
+        margin-top: 47px !important;
+    }
+    #menu
+    {
+        margin-top:0 !important;
+    }
+
+    .humbarger {
+        line-height: 47px !important;
+    }
     .logo {
         height: 50px;
         float: left;
-        width: calc(40%);
+        width: calc(72%);
+        position:absolute;
+        top:0;
+        right:10px;
     }
+            .logo > a > img {
+                width: 133px !important;
+                height: 40px !important;
+                margin: 4px 0 4px 0 !important;
+                float:right;
+            }
 
     .nav-right {
         float: right;
