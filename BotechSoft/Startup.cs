@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.HttpsPolicy;       //added by vikas
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,8 +27,8 @@ namespace BotechSoft
         public void ConfigureServices(IServiceCollection services)
         {
             var emailConfig = Configuration
-         .GetSection("EmailConfiguration")
-         .Get<EmailConfiguration>();
+       .GetSection("EmailConfiguration")
+       .Get<EmailConfiguration>();
             services.AddSingleton(emailConfig);
             services.AddScoped<IEmailSender, EmailSender>();
             services.Configure<FormOptions>(o => {
@@ -57,8 +58,11 @@ namespace BotechSoft
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();  // added by vikas
             }
 
+            app.UseHttpsRedirection(); // added by vikas
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

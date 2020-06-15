@@ -10,8 +10,8 @@
 }
 
 .hero__overlay--gradient {
-    background: -webkit-linear-gradient(left,var(--theme-color),#612ba9);
-    background: linear-gradient(90deg,var(--theme-color),#612ba9);
+    background: -webkit-linear-gradient(left,#170135,#612ba9);
+    background: linear-gradient(90deg,#170135,#612ba9);
 }
 
 .hero__overlay {
