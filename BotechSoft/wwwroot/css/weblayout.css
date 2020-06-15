@@ -214,7 +214,6 @@ div.brand-name {
     float: left;
     width: 100%;
     background: var(--theme-color);
-    border-top: 1px solid rgba(255, 255, 255, 0.28);
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -285,7 +284,7 @@ div.brand-name {
     }
 
     .header-mobile-menu li a {
-        font-size: 13px;
+        font-size: 18px;
     }
 
     .menu-container {
@@ -382,6 +381,7 @@ div.brand-name {
         background: var(--theme-color);
         float: left;
         width: 100%;
+        font-size: 15px;
     }
 
 .dropdown-wrapper:hover > .menu-button {
