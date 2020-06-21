@@ -23,7 +23,8 @@ namespace BotechSoft.Controllers
             {
                 string templatPath = Path.Combine(Directory.GetCurrentDirectory(), "emailTemplate", "query.html");
                 var emailHtmlTemplat = System.IO.File.ReadAllText(templatPath);
-                List<string> receivers = new List<string>() { "btech.csit@gmail.com", "infotovikas@gmail.com" };
+                //List<string> receivers = new List<string>() { "btech.csit@gmail.com", "infotovikas@gmail.com" };
+                List<string> receivers = new List<string>() { "hr@botechsoft.com", "infotoshalinisingh@gmail.com" };
                 string subject = "User Query from Botechsoft.com - " + queryModel.UserName;
                 string body = emailHtmlTemplat.Replace("##location##", queryModel.UserLocation)
                                                 .Replace("##designation##", queryModel.UserDesignation)
@@ -49,7 +50,8 @@ namespace BotechSoft.Controllers
             try
             {
                 var files = Request.Form.Files.Any() ? Request.Form.Files : new FormFileCollection();
-                List<string> receivers = new List<string>() { "btech.csit@gmail.com", "infotovikas@gmail.com" };
+                //List<string> receivers = new List<string>() { "btech.csit@gmail.com", "infotovikas@gmail.com" };
+                List<string> receivers = new List<string>() { "hr@botechsoft.com", "infotoshalinisingh@gmail.com" };
                 var emailHtmlTemplat = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "emailTemplate", "submitCV.html"));
                 string subject = "Job Application from Botechsoft.com - " + queryModel.UserSkill;
                 string body = emailHtmlTemplat.Replace("##exp##", queryModel.UserExperience)
