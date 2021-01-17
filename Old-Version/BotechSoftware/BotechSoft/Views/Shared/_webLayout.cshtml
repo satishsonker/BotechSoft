@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Botech Software: IT Services, Staffing Services, Digital Solutions, Technology Consulting</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/apiUrls.js"></script>
+    <script src="~/js/api.js"></script>
+    <link href="~/css/weblayout.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+    <nav class="top-nav d-none d-lg-block" id="top-nav" style="box-shadow: 1px 1px 4px grey;">
+        <div class="logo">
+            <a href="\home\index">
+                <img src="~/Images/botech_logo_black.jpg" alt="Botech Software" />
+            </a>
+        </div>
+        <div class="nav-right">
+            @*<div class="hs_header_add_wrapper hidden-xs hidden-sm">
+            <div class="hs_header_add_icon">
+                <i class="fa fa-phone"></i>
+            </div>
+            <div class="hs_header_add_icon_cont">
+                <a href="/home/contactus">
+                    <h5>Contact Us</h5>
+                </a>
+                <p><a style="text-decoration:none;" href="tel:+91-8799798300">+91-8799798300</a></p>
+            </div>
+        </div>
+        <div class="hs_header_add_wrapper d-none d-sm-block">
+            <div class="hs_header_add_icon">
+                <i class="fa fa-home"></i>
+            </div>
+            <div class="hs_header_add_icon_cont">
+                <h5>Reach Us</h5>
+                <p>
+                    H-82, 3rd Floor, Sector 12
+                    Noida(UP) - 201301
+                </p>
+            </div>
+        </div>*@  
+            <div class="socialsite" id="socialsite" style="float: right;margin-right: 20px;position: absolute;right: 0;top: -1px;transition:1s;transition-property:top;">
+                <a href="tel:+91-8799798300"><i class="fas fa-phone-square"></i></a>
+                <a href="https://twitter.com/BotechSoftware" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                <a href="https://www.facebook.com/Botech-Software-Solutions-2267739333471132/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=918799798300&fbclid=IwAR234xKxG9fN5wnloC0-2rE1Fxe5zk1K8bwU3Fov1gyPe2u0N7zw4Lb2fHU" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+                <a href="https://www.linkedin.com/company/botechsoftware" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <ul class="header-menu  d-none d-md-block " style="float:right;">
+                <li><a href="/home/index">Home</a></li>
+                <li>
+                    <div class="dropdown-wrapper menu-button">
+                        <a class="menu-button" href="#">About Us <i class="fas fa-sort-down"></i></a>
+                        <div class="drop-menu">
+                            <a class="menu-button" href="/home/Aboutus">Overview</a>
+                            <a class="menu-button" href="/home/privacy">Privacy</a>
+                            <a class="menu-button" href="/home/career">Career</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-wrapper menu-button">
+                        <a class="menu-button" href="#">Training <i class="fas fa-sort-down"></i></a>
+                        <div class="drop-menu">
+                            <a class="menu-button" href="/home/training?type=at">Azure Training</a>
+                            <a class="menu-button" href="/home/training?type=dht">Dataware Housing Training</a>
+                            <a class="menu-button" href="/home/training?type=dt">Devops Training</a>
+                            <a class="menu-button" href="/home/training?type=ant">Angular Training</a>
+                            <a class="menu-button" href="/home/training?type=btt">Blazer Training</a>
+                            <a class="menu-button" href="/home/training?type=act">ASP.Net Core Training</a>
+                            <a class="menu-button" href="/home/training?type=cctt">Cloud Computing Training</a>
+                            <a class="menu-button" href="/home/training?type=iott">IOT Training</a>
+                            <a class="menu-button" href="/home/training?type=pyt">Python Training</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-wrapper menu-button">
+                        <a class="menu-button" href="#">Services <i class="fas fa-sort-down"></i></a>
+                        <div class="drop-menu">
+                            <a class="menu-button" href="/home/services?type=dm">Development & Maintenance</a>
+                            <a class="menu-button" href="/home/services?type=ittc">IT Training & Technology Consulting</a>
+                            <a class="menu-button" href="/home/services?type=bpo">Business Process Outsourcing</a>
+                            <a class="menu-button" href="/home/services?type=ps">Professional Staffing</a>
+                            <a class="menu-button" href="/home/services?type=ds">Digital Solutions</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-wrapper menu-button">
+                        <a class="menu-button" href="#">Contact Us <i class="fas fa-sort-down"></i></a>
+                        <div class="drop-menu">
+                            <a class="menu-button" href="/home/contactus?type=Contactus">Contact With Us</a>
+                            <a class="menu-button" href="/home/contactus?type=SubmitCv">Submit Your CV</a>
+                            <a class="menu-button" href="/home/contactus?type=referfriend">Refer a Friend</a>
+                            <a class="menu-button" href="/home/faqs">FAQ's</a>
+                        </div>
+                    </div>
+                    @*<a href="/home/contactus">Contact Us</a>*@
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="hs_navigation_header_wrapper" id="menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 menu-container" style="top:0;">
+                    <i class="fas fa-bars humbarger d-lg-none d-md-block d-sm-block"></i>
+                    <div class="logo d-lg-none d-md-block d-sm-block float-right">
+                        <div class="socialsite" style="float:left;margin-right:20px;margin-top:10px;">
+                            <a href="tel:+91-8799798300"><i class="fas fa-phone-square"></i></a>
+                            <a href="https://twitter.com/BotechSoftware" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                            <a href="https://www.facebook.com/Botech-Software-Solutions-2267739333471132/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                            <a href="https://api.whatsapp.com/send?phone=918799798300&fbclid=IwAR234xKxG9fN5wnloC0-2rE1Fxe5zk1K8bwU3Fov1gyPe2u0N7zw4Lb2fHU" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+                            <a href="https://www.linkedin.com/company/botechsoftware" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                        <a href="\home\index">
+                            <img src="~/Images/botech_logo_black.jpg" alt="Botech Software" />
+                        </a>
+                    </div>
+                    <div class="mobile-menu hidden-menu">
+                        <div class="mm-overlay"></div>
+                        <ul class="header-mobile-menu">
+                            <li><a href="/home/index">Home</a></li>
+                            <li>
+                                <div class="dropdown-wrapper menu-button">
+                                    <a class="menu-button" href="#">About Us</a>
+                                    <div class="drop-menu" style="width: 100px;">
+                                        <a class="menu-button" href="/home/Aboutus">Overview</a>
+                                        <a class="menu-button" href="/home/privacy">Privacy</a>
+                                        <a class="menu-button" href="/home/career">Career</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown-wrapper menu-button">
+                                    <a class="menu-button" href="#">Training</a>
+                                    <div class="drop-menu">
+                                        <a class="menu-button" href="/home/training?type=at">Azure Training</a>
+                                        <a class="menu-button" href="/home/training?type=dht">Dataware Housing Training</a>
+                                        <a class="menu-button" href="/home/training?type=dt">Devops Training</a>
+                                        <a class="menu-button" href="/home/training?type=ant">Angular Training</a>
+                                        <a class="menu-button" href="/home/training?type=btt">Blazer Training</a>
+                                        <a class="menu-button" href="/home/training?type=act">ASP.Net Core Training</a>
+                                        <a class="menu-button" href="/home/training?type=cctt">Cloud Computing Training</a>
+                                        <a class="menu-button" href="/home/training?type=iott">IOT Training</a>
+                                        <a class="menu-button" href="/home/training?type=pyt">Python Training</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown-wrapper menu-button">
+                                    <a class="menu-button" href="#">Services</a>
+                                    <div class="drop-menu" style="width: 100px;">
+                                        <a class="menu-button" href="/home/services?type=dm">Development & Maintenance</a>
+                                        <a class="menu-button" href="/home/services?type=ittc">IT Training & Technology Consulting</a>
+                                        <a class="menu-button" href="/home/services?type=bpo">Business Process Outsourcing</a>
+                                        <a class="menu-button" href="/home/services?type=ps">Professional Staffing</a>
+                                        <a class="menu-button" href="/home/services?type=ds">Digital Solutions</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                @*<a href="/home/contactus">Contact Us</a>*@
+                                <div class="dropdown-wrapper menu-button">
+                                    <a class="menu-button" href="#">Contact Us</a>
+                                    <div class="drop-menu" style="width: 100px;">
+                                        <a class="menu-button" href="/home/contactus?type=Contactus">Contact With Us</a>
+                                        <a class="menu-button" href="/home/contactus?type=SubmitCv">Submit Your CV</a>
+                                        <a class="menu-button" href="/home/contactus?type=referfriend">Refer a Friend</a>
+                                        <a class="menu-button" href="/home/faqs">FAQ's</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    @*<ul class="header-menu  d-none d-md-block " style="float:right;">
+                        <li><a href="/home/index">Home</a></li>
+                        <li>
+                            <div class="dropdown-wrapper menu-button">
+                                <a class="menu-button" href="#">About Us</a>
+                                <div class="drop-menu">
+                                    <a class="menu-button" href="/home/Aboutus">About Us</a>
+                                    <a class="menu-button" href="/home/privacy">Privacy</a>
+                                    <a class="menu-button" href="/home/career">Career</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-wrapper menu-button">
+                                <a class="menu-button" href="#">Training</a>
+                                <div class="drop-menu">
+                                    <a class="menu-button" href="/home/training?type=at">Azure Training</a>
+                                    <a class="menu-button" href="/home/training?type=dht">Dataware Housing Training</a>
+                                    <a class="menu-button" href="/home/training?type=dt">Devops Training</a>
+                                    <a class="menu-button" href="/home/training?type=ant">Angular Training</a>
+                                    <a class="menu-button" href="/home/training?type=btt">Blazer Training</a>
+                                    <a class="menu-button" href="/home/training?type=act">ASP.Net Core Training</a>
+                                    <a class="menu-button" href="/home/training?type=cctt">Cloud Computing Training</a>
+                                    <a class="menu-button" href="/home/training?type=iott">IOT Training</a>
+                                    <a class="menu-button" href="/home/training?type=pyt">Python Training</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-wrapper menu-button">
+                                <a class="menu-button" href="#">Services</a>
+                                <div class="drop-menu">
+                                    <a class="menu-button" href="/home/services?type=dm">Development & Maintenance</a>
+                                    <a class="menu-button" href="/home/services?type=ittc">IT Training & Technology Consulting</a>
+                                    <a class="menu-button" href="/home/services?type=bpo">Business Process Outsourcing</a>
+                                    <a class="menu-button" href="/home/services?type=ps">Professional Staffing</a>
+                                    <a class="menu-button" href="/home/services?type=ds">Digital Solutions</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-wrapper menu-button">
+                                <a class="menu-button" href="#">Contact Us</a>
+                                <div class="drop-menu">
+                                    <a class="menu-button" href="/home/contactus?type=Contactus">Contact Us</a>
+                                    <a class="menu-button" href="/home/contactus?type=SubmitCv">Submit Your CV</a>
+                                    <a class="menu-button" href="/home/contactus?type=referfriend">Refer a Friend</a>
+                                    <a class="menu-button" href="/home/faqs">FAQ's</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-container">
+        @RenderBody()
+        <div class="row bt-footer">
+            <div class="col-md-3 col-sm-6 content-sec">
+                <p>IT Training & Technology Consulting</p>
+                <ul>
+                    <li><a href="/home/training?type=at">Azure Training</a></li>
+                    <li><a href="/home/training?type=dht">Dataware Housing Training</a></li>
+                    <li><a href="/home/training?type=dt">Devops Training</a></li>
+                    <li><a href="/home/training?type=ant">Angular Training</a></li>
+                    <li><a href="/home/training?type=btt">Blazer Training</a></li>
+                    <li><a href="/home/training?type=act">ASP.Net Core Training</a></li>
+                    <li><a href="/home/training?type=cct">Cloud Computing Training</a></li>
+                    <li><a href="/home/training?type=iott">IOT Training</a></li>
+                    <li><a href="/home/training?type=pyt">Python Training</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3  col-sm-6 content-sec">
+                <p>our services</p>
+                <ul>
+                    <li><a href="/home/services?type=dm">Development & Maintenance</a></li>
+                    <li><a href="/home/services?type=ittc">IT Training & Technology Consulting</a></li>
+                    <li><a href="/home/services?type=bpo">Business Process Outsourcing</a></li>
+                    <li><a href="/home/services?type=ps">Professional Staffing</a></li>
+                    <li><a href="/home/services?type=ds">Digital Solutions</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-6 content-sec">
+                <p>Quick links</p>
+                <ul>
+                    <li><a href="/home/aboutus">About</a></li>
+                    <li><a href="/home/faqs">FAQ's</a></li>
+                    <li><a href="/home/privacy">Privacy Policy</a></li>
+                    <li data-toggle="modal" data-target="#tandcModal">Term of Use</li>
+                    <li><a href="/home/career">Career</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-6 content-sec">
+                <p>contact details</p>
+                <ul>
+                    <li><i class="fas fa-home"></i> H 82 Sector 12, Noida, UP 201301</li>
+                    <li><i class="fas fa-mobile-alt"></i> Phone : <a href="tel:+91-8799798300">8799798300</a></li>
+                    <li><i class="fas fa-globe-asia"></i> Fax : <a href="fax:+91-8799798300">8799798300</a></li>
+                    <li><i class="fas fa-envelope"></i> Email : <a href="email:info@botechsoft.com">info@botechsoft.com</a></li>
+                    <li class="socialsite">
+                        <a href="https://twitter.com/BotechSoftware" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://www.facebook.com/Botech-Software-Solutions-2267739333471132/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=918799798300&fbclid=IwAR234xKxG9fN5wnloC0-2rE1Fxe5zk1K8bwU3Fov1gyPe2u0N7zw4Lb2fHU" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+                        <a href="https://www.linkedin.com/company/botechsoftware" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>COPYRIGHT @@2020. ALL RIGHTS RESERVED.</p>
+                <p>Design and DEVELOPED by <span>Botech Software</span></p>
+            </div>
+        </div>
+    </div>
+    <!--Term and uses Modal -->
+    <div class="modal fade" id="tandcModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Terms &amp; Uses</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <p>Botech requires that all visitors to website(s) owned, operated, licensed and/or controlled by Botech adhere to these Terms of Use and consent to the terms of our Privacy Policy. </p>
+                    <p>By accessing and using the Botech Site, you indicate your acknowledgement and acceptance of these Terms of Use. If you do not agree with these Terms of Use, you are not authorized to continue use of Botech site(s) or resources.</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.mm-overlay').mouseup(function (e) {
+            $('.mobile-menu').addClass('hidden-menu');
+        });
+        //$(document).mouseup(function (e) {
+        //    $('.mobile-menu').addClass('hidden-menu');
+        //});
+        $(document).ready(function () {
+            $('.humbarger').on('click', function () {
+                $('.mobile-menu').toggleClass('hidden-menu');
+            });
+            $('[href="http://somee.com/VirtualServer.aspx"]').parent().parent().parent().remove();
+
+        });
+
+        //Smooth scroll
+          $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function (event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                    &&
+                    location.hostname == this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top-20
+                        }, 1000, function () {
+                            // Callback after animation
+                            // Must change focus!
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
+                }
+            });
+        $(window).resize(function () {
+            if ($(document).width() > 819) {
+                $('.mobile-menu').addClass('hidden-menu');
+            }
+        });
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById("top-nav").style.padding = "5px 0px";
+                document.getElementById("menu").style.marginTop = "63px";
+                document.getElementById("socialsite").style.top = "-25px";
+            } else {
+                document.getElementById("top-nav").style.padding = "25px 0px";
+                document.getElementById("menu").style.marginTop = "103px";
+                document.getElementById("socialsite").style.top = "-1px";
+            }
+        }
+    </script>
+</body>
+
+</html>

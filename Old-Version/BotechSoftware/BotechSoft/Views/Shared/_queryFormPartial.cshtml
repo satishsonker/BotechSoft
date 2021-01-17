@@ -1,0 +1,219 @@
+﻿<form class="form">
+    <div class="form-group">        
+        <input type="text" class="" required id="username" name="username" placeholder="Name *">
+        <input type="text" class="" required id="usercompany" name="usercompany" placeholder="Company/ Organization *">
+        <input type="text" class="" required id="userdesignation" name="userdesignation" placeholder="Designation *">
+        <input type="email" class="" required id="useremail" name="useremail" placeholder="Email *">
+        <div class="mobile-container">
+            <select id="isdcode" required class="" name="isdcode">
+                <option value="+91">India +91</option>
+            </select>
+            <input type="text" class="" required id="usermobile" name="usermobile" placeholder="Mobile *">
+        </div>
+        <input type="text" class="" required id="userlocation" name="userlocation" placeholder="Location *">
+        <select id="querytype" required class="" name="QueryType">
+            <option value="Professional Staffing">Professional Staffing</option>
+            <option value="Development & Maintenance">Development & Maintenance</option>
+            <option value="IT Services">IT Services</option>
+            <option value="IT Training & Technology Consulting">IT Training & Technology Consulting</option>
+            <option value="Business Process Outsourcing">Business Process Outsourcing</option>
+            <option value="Others">Others</option>
+        </select>
+        <textarea id="query" name="query" placeholder="Your query *" required class="form-control" cols="90" rows="3"></textarea>
+        <small id="query-length" style="float: right;">0/500</small>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" style="width:6%;height: 22px;" id="IsTCAccepted" name="IsTCAccepted">
+            <label class="form-check-label" style="width: 100px; cursor:pointer;margin-left: 12px;" for="chkTC" data-toggle="modal" data-target="#tandcModal"><a> Term &amp; Condition</a></label>
+        </div>
+        <div style="text-align: right;">
+            <div id="queryMsg" class="queryMsg">Your query has been sent.</div>
+            <button type="submit" id="sendQuery" class="">Submit</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $(document).on('keyup keydown keypress paste', '#query', function (e) {
+            $('#query-length').removeClass();
+            $('#query-length').text(`${$(this).val().length}/500`);
+            if ($(this).val().length < 50) {
+                $('#query-length').addClass('form-error');
+            }
+            else {
+                $('#query-length').addClass('form-valid');
+            }
+            if ($(this).val().length > 500) {
+                $(this).val($(this).val().substr(0, 500));
+            }
+        });
+        $(document).on('submit', '.form', function (e) {
+
+            e.preventDefault();
+            e.stopPropagation();
+            $('.queryMsg').hide();
+            var $valid = formValidation();
+            if ($valid.isValid) {
+                $(this).attr('disabled', 'disabled');
+                var $param = {};
+                $param.Username = $valid.userName;
+                $param.Usermobile = $valid.userMobile;
+                $param.UserEmail = $valid.userEmail;
+                $param.QueryType = $valid.querytype;
+                $param.Query = $valid.query;
+                $param.UserCompany = $valid.usercompany;
+                $param.UserDesignation = $valid.userdesignation;
+                    $param.IsdCode = $valid.isdcode;
+                    $param.UserLocation = $valid.userlocation;
+                api.http.post(url.root.query.sendQuery, $param).then(function (done) {
+
+                    $('.queryMsg').removeClass().addClass('queryMsg').addClass('form-valid').text('Your query has been sent.').show();
+                    $('#sendQuery').removeAttr('disabled');
+                    $('#username').val('');
+                    $('#useremail').val('');
+                    $('#querytype').val('');
+                    $('#usermobile').val('');
+                    $('#query').val('');
+                    $('#usercompany').val('');
+                    $('#userdesignation').val('');
+                    $('#userlocation').val('');
+                    $('#query-length').removeClass().text(`0/500`); $('#IsTCAccepted').prop('checked', false);
+                    setTimeout(function () { $('.queryMsg').hide(); }, 5000);
+                }).catch(function () {
+                    $('.queryMsg').removeClass().addClass('queryMsg').addClass('form-error').text('Unable to send your query').show();
+                });
+            }
+            else {
+                $('.queryMsg').removeClass().addClass('queryMsg').addClass('form-error').text($valid.error).show();
+            }
+            return false;
+        });
+
+    });
+    const formValidation = function () {
+        var mobilePattern = new RegExp(/^[0-9]{10}$/);
+        var $data = {
+            isValid: true,
+            error: '',
+            userName: $('#username').val(),
+            userEmail: $('#useremail').val(),
+            querytype: $('#querytype').val(),
+            userMobile: $('#usermobile').val(),
+            usercompany: $('#usercompany').val(),
+            userdesignation: $('#userdesignation').val(),
+            isdcode: $('#isdcode').val(),
+            userlocation: $('#userlocation').val(),
+            query: $('#query').val(),
+            IsTCAccepted: $('#IsTCAccepted').is(':checked')
+        };
+
+        if ($data.userName.length < 3) {
+            $data.isValid = false;
+            $data.error = 'Name should be minimun 3 charector.';
+        }
+        else if ($data.usercompany.length < 3) {
+            $data.isValid = false;
+            $data.error = 'Company should be minimun 3 charector.';
+        }
+        else if ($data.userdesignation.length < 3) {
+            $data.isValid = false;
+            $data.error = 'Designation should be minimun 3 charector.';
+        }
+        else if ($data.userlocation.length < 3) {
+            $data.isValid = false;
+            $data.error = 'Location should be minimun 3 charector.';
+        }
+        else if ($data.userMobile.length < 10 || !mobilePattern.test($data.userMobile)) {
+            $data.isValid = false;
+            $data.error = 'Invalid mobile number.';
+        }
+        else if ($data.query.length < 50) {
+            $data.isValid = false;
+            $data.error = 'Query should contain atleast 50 charectors.';
+        }
+        else if ($data.query.length > 500) {
+            $data.isValid = false;
+            $data.error = 'Query should contain maximum 500 charectors.';
+        }
+        else if (!$data.IsTCAccepted) {
+            $data.isValid = false;
+            $data.error = 'Please accept term & conditions';
+        }
+        return $data;
+    }
+</script>
+<style>
+    .form-error {
+        color: orangered;
+    }
+
+    .form-valid {
+        color: forestgreen;
+    }
+
+    .queryMsg {
+        font-size: 13px;
+        display: none;
+        width: 74%;
+        float: left;
+        line-height: 27px;
+    }
+
+    .query-label {
+        background: #1f215d;
+        text-align: center;
+        font-size: 13px;
+        color: white;
+        margin: 20px 0px;
+    }
+
+    .form button {
+        border: 1px solid #1f215d;
+        background: #1f215d;
+        color: white;
+        font-size: 14px;
+        border-radius: 4px;
+        padding: 3px 10px;
+        transition: 0.5s ease-in-out;
+    }
+
+        .form button:hover {
+            background: #fab503;
+            transition: 0.5s ease-in-out;
+        }
+
+    .form {
+      border: 1px solid white;
+    padding: 0px;
+    background: #faf6f6;
+    border-radius: 6px;
+    box-shadow: 1px 1px 11px grey;
+    }
+
+        .form input:not([tyep="checkbox"]), select {
+            width: 100%;
+            padding: 3px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+            border: 1px solid #8080805c;
+            margin-bottom: 6px;
+        }
+        .mobile-container select
+        {
+            width:40%;
+        }
+        .mobile-container input
+        {
+            width:55% !important;
+            float:right;
+        }
+
+    .form textarea {
+        resize: none;
+        font-size: 12px;
+    }
+
+        .form label {
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+</style>

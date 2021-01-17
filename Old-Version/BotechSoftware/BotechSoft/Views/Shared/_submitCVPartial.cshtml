@@ -1,0 +1,223 @@
+﻿<form class="form">
+    <div class="form-group">
+        <input type="text" class="" required id="username" name="username" placeholder="Name *">
+        <input type="email" class="" required id="useremail" name="useremail" placeholder="Email *">
+        <div class="mobile-container">
+            <select id="isdcode" required class="" name="isdcode">
+                <option value="+91">India +91</option>
+            </select>
+            <input type="text" class="" required id="usermobile" name="usermobile" placeholder="Mobile *">
+        </div>
+        <input type="text" class="" required id="userlocation" maxlength="30" name="userlocation" placeholder="Location *">
+        <input type="number" class="" required id="userexperience" min="0" max="60" name="userexperience" placeholder="Experience *">
+        <input type="text" class="" maxlength="100" required id="userskill" name="userskill" placeholder="Skill *">
+        <input type="file" name="file" id="file" required onchange="checkfile(this);" />
+        <div style="margin-top: -6px;font-size: 10px;">Supported Formats: .docx, .doc &amp; .pdf</div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" style="width:6%;height: 22px;" id="IsTCAccepted" name="IsTCAccepted">
+            <label class="form-check-label" style="width: 100px; cursor:pointer;margin-left: 12px;" for="chkTC" data-toggle="modal" data-target="#tandcModal"><a> Term &amp; Condition</a></label>
+        </div>
+        <div style="text-align: right;">
+            <div id="queryMsg" class="queryMsg">Your query has been sent.</div>
+            <button type="submit" id="sendQuery" class="">Submit</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $(document).on('keyup keydown keypress paste', '#query', function (e) {
+            $('#query-length').removeClass();
+            $('#query-length').text(`${$(this).val().length}/500`);
+            if ($(this).val().length < 50) {
+                $('#query-length').addClass('form-error');
+            }
+            else {
+                $('#query-length').addClass('form-valid');
+            }
+            if ($(this).val().length > 500) {
+                $(this).val($(this).val().substr(0, 500));
+            }
+        });
+        $(document).on('submit', '.form', function (e) {
+
+            e.preventDefault();
+            e.stopPropagation();
+            $('.queryMsg').hide();
+            var $valid = formValidation();
+            if (!$valid.isValid) {
+                $('.queryMsg').addClass('form-error').show().text($valid.error);
+            }
+            else {
+                $('.queryMsg').removeClass('form-error').hide().text("");
+                var formData = new FormData();
+                formData.append('file', document.getElementById("file").files[0]);
+                formData.append('userName', $('#username').val());
+                formData.append('userEmail', $('#useremail').val());
+                formData.append('querytype', $('#querytype').val());
+                formData.append('userMobile', $('#isdcode').val() + '-' + $('#usermobile').val());
+                formData.append('userlocation', $('#userlocation').val());
+                formData.append('userexperience', $('#userexperience').val());
+                formData.append('userskill', $('#userskill').val());
+                $('.queryMsg').addClass('form-valid').show().text("Submitting your profile...");
+                $.ajax({
+                    type: "POST",
+                    url: url.root.query.sendEmail,
+                    data: formData, dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        if (data === 'Sent') {
+                            $('#sendQuery').removeAttr('disabled');
+                            $('#username').val('');
+                            $('#useremail').val('');
+                            $('#querytype').val('');
+                            $('#usermobile').val('');
+                            $('#userlocation').val('');
+                            $('#userexperience').val('');
+                            $('#userskill').val('');
+                            $('#IsTCAccepted').prop('checked', false);
+                            $('#file').val('');
+                            $('.queryMsg').addClass('form-valid').show().text("Your profile has been submitted.");
+                            setTimeout(function () { $('.queryMsg').hide(); }, 5000);
+                        }
+                        else {
+                            $('.queryMsg').addClass('form-error').show().text("Unable to submit your profile.");
+                        }
+
+                    }
+                });
+            }
+        });
+        return false;
+    });
+    const formValidation = function () {
+        var mobilePattern = new RegExp(/^[0-9]{10}$/);
+        var $data = {
+            isValid: true,
+            error: '',
+            userName: $('#username').val(),
+            userEmail: $('#useremail').val(),
+            userMobile: $('#usermobile').val(),
+            isdcode: $('#isdcode').val(),
+            userlocation: $('#userlocation').val(),
+            query: $('#query').val(),
+            skill: $('#userskill').val(),
+            file: $('#file').val(),
+            IsTCAccepted: $('#IsTCAccepted').is(':checked')
+        };
+
+        if ($data.userName.length < 3) {
+            $data.isValid = false;
+            $data.error = 'Name should be minimun 3 charector.';
+        }
+        else if ($data.userlocation.length < 3) {
+            $data.isValid = false;
+            $data.error = 'Location should be minimun 3 charector.';
+        }
+        else if ($data.userMobile.length < 10 || !mobilePattern.test($data.userMobile)) {
+            $data.isValid = false;
+            $data.error = 'Invalid mobile number.';
+        }
+        else if (!$data.IsTCAccepted) {
+            $data.isValid = false;
+            $data.error = 'Please accept term & conditions';
+        }
+        return $data;
+    }
+    function checkfile(sender) {
+        var validExts = new Array(".docx", ".doc", ".pdf");
+        var fileExt = sender.value;
+        fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+        if (validExts.indexOf(fileExt) < 0) {
+            $('.queryMsg').addClass('form-error').show().text("Invalid file selected, valid files are of " +
+                validExts.toString() + " types.");
+            $('#sendQuery').attr('disabled', 'disables');
+            return false;
+        }
+        else if (sender.files[0].size > 1048576) {
+            $('.queryMsg').addClass('form-error').show().text("Selected file should be less than 1 MB.");
+            $('#sendQuery').attr('disabled', 'disables');
+            return false;
+        }
+        else {
+            $('.queryMsg').removeClass('form-error').hide().text("");
+            $('#sendQuery').removeAttr('disabled'); return true;
+        }
+    }
+</script>
+<style>
+    .form-error {
+        color: orangered;
+    }
+
+    .form-valid {
+        color: forestgreen;
+    }
+
+    .queryMsg {
+        font-size: 13px;
+        display: none;
+        width: 74%;
+        float: left;
+        line-height: 27px;
+    }
+
+    .query-label {
+        background: #1f215d;
+        text-align: center;
+        font-size: 13px;
+        color: white;
+        margin: 20px 0px;
+    }
+
+    .form button {
+        border: 1px solid #1f215d;
+        background: #1f215d;
+        color: white;
+        font-size: 14px;
+        border-radius: 4px;
+        padding: 3px 10px;
+        transition: 0.5s ease-in-out;
+    }
+
+        .form button:hover {
+            background: #fab503;
+            transition: 0.5s ease-in-out;
+        }
+
+    .form {
+        border: 1px solid white;
+        padding: 0px;
+        background: #faf6f6;
+        border-radius: 6px;
+        box-shadow: 1px 1px 11px grey;
+    }
+
+        .form input:not([tyep="checkbox"]), select {
+            width: 100%;
+            padding: 3px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+            border: 1px solid #8080805c;
+            margin-bottom: 6px;
+        }
+
+    .mobile-container select {
+        width: 40%;
+    }
+
+    .mobile-container input {
+        width: 55% !important;
+        float: right;
+    }
+
+    .form textarea {
+        resize: none;
+        font-size: 12px;
+    }
+
+    .form label {
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+</style>

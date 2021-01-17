@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewData["Title"] = "AboutUs";
+    Layout = "~/Views/Shared/_webLayout.cshtml";
+}
+
+<div class="bg">
+    <div class="heading">About Us</div>
+</div>
+<div class="container career-container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="heading2">About Us</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 career-data">
+            <h3 style="text-transform:uppercase">WORKING @@ Botech Software</h3>
+            <p>
+                The world of work and employment is continually evolving, and the Botech Software is one of the leading forces shaping that change. With our breadth and depth of expertise gained on the global stage, we’re able to deliver fully integrated workforce solutions that will support your organization’s development and growth strategy. So you’re not just ready for the future. You’re already there.
+            </p>
+            <p>
+                Our ecosystem of brands and solutions allows us to offer complete solutions that help solve the talent challenges faced by our clients and to support our candidates and associates throughout their careers. We are embracing the potential of digital, adding more value to existing solutions, expanding our market, and significantly improving efficiency. We see digitization as an opportunity to grow employment. By combining the best of the HR solutions industry with the best of the technology industry in a responsible way, we seek to become a more valuable service partner.
+            </p>
+            <p>
+                Our India office, headquartered in Noida captures a unique job market, and each year helps to candidates to find the perfect job.
+            </p>
+        </div>
+        <div class="col-md-6 career-logo">
+            <img src="~/Images/career.jpg" />
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg {
+        background: url('../images/career_bg.jpg') no-repeat center center fixed;
+        background-size: 100% 100%;
+        height: 300px;
+        width: 102%;
+    }
+
+    .career-data {
+        text-align: justify;
+    }
+
+    @@media only screen and (max-width: 900px) {
+        .heading{
+        width: 100% !important;
+     }
+
+        .bg {
+            width: 100% !important;
+        }
+    }
+
+    .heading {
+        background: #80808073;
+        text-align: center;
+        color: black;
+        font-size: 49px;
+        position: relative;
+        width: 102%;
+        top: 39%;
+        font-family: fantasy;
+    }
+
+    .heading2 {
+        background: #80808036;
+        text-align: left;
+        color: black;
+        font-size: 36px;
+        /* position: relative; */
+        width: 102%;
+        top: 39%;
+        font-family: fantasy;
+        padding: 0px 20px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+
+    .career-container {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .career-logo img {
+        width: 100%;
+        max-height: 400px;
+    }
+</style>
+
+

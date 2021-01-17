@@ -1,0 +1,115 @@
+﻿@Model
+@{
+    ViewData["Title"] = "ContactUs";
+    Layout = "~/Views/Shared/_webLayout.cshtml";
+}
+@{
+    string _type = TempData["contacttype"] != null ? TempData["contacttype"].ToString().ToLower() : "contactus";
+    <div class="container container-query">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="query-label">
+                    @if (_type == "contactus")
+                    {<text>Business Enquiry</text>}
+                else if (_type == "submitcv")
+                {<text>Submit Your CV</text> }
+            else
+            {<text>Business Enquiry</text>}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-md-6 col-sm-12">
+                <div class="contact-heading">
+                    @if (_type == "contactus")
+                    {<text>Contact Us</text>}
+                else if (_type == "submitcv")
+                {<text>Submit Your CV</text> }
+            else
+            {<text>Contact Us</text>}
+                </div> <img src="~/Images/bg_enquiry.jpg" class="contact-img" />
+            </div>
+            <div class="col-md-6 col-sm-12">
+
+                @if (TempData["contacttype"] != null && TempData["contacttype"].ToString().ToLower() == "contactus")
+                {
+                    <partial name="/Views/shared/_queryFormPartial.cshtml" />
+                }
+                else if (TempData["contacttype"] != null && TempData["contacttype"].ToString().ToLower() == "submitcv")
+                {
+                    <partial name="/Views/shared/_submitCVPartial.cshtml" />
+                }
+                else
+                {
+                    <partial name="/Views/shared/_queryFormPartial.cshtml" />
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+ 
+ 
+}
+<style>
+    @@media (max-width: 900px) {
+        .container {
+            max-width: 650px;
+        }
+    }
+    
+    /*@@media (min-width: 900) {
+        .container {
+            max-width: initial !important;
+        }
+    }*/
+    .contact-heading {
+        position: absolute;
+        right: 0;
+        border: 0px solid #0000008c;
+        width: 94%;
+        text-align: right;
+        line-height: 47px;
+        padding-right: 20px;
+        background: #b8b8b83d;
+        color: #d7d7d7;
+        bottom: 0;
+        z-index: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        left: 18px;
+    }
+
+    .contact-img {
+        max-height: 291px;
+        width: 100%;
+    }
+
+    .form .form-group {
+        max-height: 280px;
+        width: 96%;
+        overflow-y: auto;
+        padding-right: 10px;
+        margin: 10px;
+    }
+
+    .container-query .row {
+        background: #80808045;
+    }
+
+        .container-query .row:not(:first-child) {
+            background: #80808045;
+            padding: 20px 0;
+            border-radius: 5px;
+        }
+
+    .container-query {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+</style>
+
+
